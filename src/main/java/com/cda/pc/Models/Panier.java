@@ -31,6 +31,7 @@ public class Panier {
 	public void setUser(String user) {
 		this.user = user;
 	}
+	public Collection<Computer> getComputer() {
 		return computer;
 	}
 	public void setComputer(Collection<Computer> computer) {
