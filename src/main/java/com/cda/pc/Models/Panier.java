@@ -11,6 +11,7 @@ public class Panier {
 
 
 	private String user;
+	private Collection<Computer>computer;
 	private float price;
 	
 	
@@ -18,8 +19,10 @@ public class Panier {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Panier(String user, Collection<Computer> computer, float price) {
 		super();
 		this.user = user;
+		this.computer = computer;
 		this.price = price;
 	}
 	public String getUser() {
@@ -28,8 +31,10 @@ public class Panier {
 	public void setUser(String user) {
 		this.user = user;
 	}
+		return computer;
 	}
-	public Collection<Computer> getComputers() {
+	public void setComputer(Collection<Computer> computer) {
+		this.computer = computer;
 	}
 	public float getPrice() {
 		return price;

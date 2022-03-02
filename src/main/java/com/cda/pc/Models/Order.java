@@ -1,4 +1,5 @@
 package entities;
+package com.cda.pc.Models;
 
 import java.util.AbstractCollection;
 import java.util.Collection;
@@ -23,13 +24,16 @@ public class Order {
 	private float price;
 	private String user;
 	
+	private Collection<Computer>computer;
 	private String status;
 	
 	
+	public Order(int id, float price, String user, Collection<Computer> computer, String status) {
 		super();
 		this.id = id;
 		this.price = price;
 		this.user = user;
+		this.computer= computer;
 		this.status = status;
 	}
 
@@ -64,9 +68,13 @@ public class Order {
 	}
 
 
+	public Collection<Computer> getComputer() {
+		return computer;
 	}
 
 
+	public void setComputer(Collection<Computer> computer) {
+		this.computer = computer;
 	}
 
 
