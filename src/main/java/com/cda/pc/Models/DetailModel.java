@@ -71,6 +71,16 @@ public class DetailModel {
 		this.ram = ram;
 	}
 
+	public DetailModel(String exploitation_systeme, String processeur, String carte_graphique, String stockage,
+			String ram) {
+		super();
+		this.exploitation_systeme = exploitation_systeme;
+		this.processeur = processeur;
+		this.carte_graphique = carte_graphique;
+		this.stockage = stockage;
+		this.ram = ram;
+	}
+
 
 
 	

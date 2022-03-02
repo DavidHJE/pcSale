@@ -8,4 +8,6 @@ import com.cda.pc.Models.DetailModel;
 @Repository
 public interface DetailRepository extends CrudRepository<DetailModel, Long>{
 
+	DetailModel save(DetailModel detailModel);
+
 }
