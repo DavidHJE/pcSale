@@ -1,16 +1,21 @@
 package com.cda.pc;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class FirstControlleur {
-
-	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("page", "Index");
-		
-		return "index";
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	@GetMapping("/api/generate")
+	public void generate() {
+			for (int i = 1; i <= 10; i++) {
+				User user = new User("name" + i, "pseudo" + i, "email" + i, "password" + i);
+			
+				userRepo.save(user);
+			}
 	}
 }
