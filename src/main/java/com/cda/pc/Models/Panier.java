@@ -1,4 +1,4 @@
-package entities;
+package com.cda.pc.Models;
 
 import java.util.Collection;
 
@@ -11,7 +11,7 @@ public class Panier {
 
 
 	private String user;
-	private Collection<Computers>computers;
+	private Collection<Computer> computers;
 	private float price;
 	
 	
@@ -19,7 +19,7 @@ public class Panier {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Panier(String user, Collection<Computers> computers, float price) {
+	public Panier(String user, Collection<Computer> computers, float price) {
 		super();
 		this.user = user;
 		this.computers = computers;
@@ -31,10 +31,10 @@ public class Panier {
 	public void setUser(String user) {
 		this.user = user;
 	}
-	public Collection<Computers> getComputers() {
+	public Collection<Computer> getComputers() {
 		return computers;
 	}
-	public void setComputers(Collection<Computers> computers) {
+	public void setComputers(Collection<Computer> computers) {
 		this.computers = computers;
 	}
 	public float getPrice() {

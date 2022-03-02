@@ -1,4 +1,4 @@
-package entities;
+package com.cda.pc.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

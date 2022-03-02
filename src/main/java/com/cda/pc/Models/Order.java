@@ -1,9 +1,10 @@
-package entities;
+package com.cda.pc.Models;
 
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 @Entity
 public class Order {
 	
@@ -19,11 +20,10 @@ public class Order {
 	private float price;
 	private String user;
 	
-	private Collection<Computers>computers;
+	private Collection<Computer>computers;
 	private String status;
 	
-	
-	public Order(int id, float price, String user, collection<Computers> computers, String status) {
+	public Order(int id, float price, String user, Collection<Computer> computers, String status) {
 		super();
 		this.id = id;
 		this.price = price;
@@ -63,12 +63,12 @@ public class Order {
 	}
 
 
-	public Collection<Computers> getComputers() {
+	public Collection<Computer> getComputers() {
 		return computers;
 	}
 
 
-	public void setComputers(Collection<Computers> computers) {
+	public void setComputers(Collection<Computer> computers) {
 		this.computers = computers;
 	}
 
