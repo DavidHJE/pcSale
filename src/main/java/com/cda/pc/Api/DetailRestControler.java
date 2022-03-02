@@ -3,10 +3,14 @@ package com.cda.pc.Api;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.pc.Models.DetailModel;
@@ -28,7 +32,7 @@ public class DetailRestControler {
 
 	}*/
 	
-		@GetMapping("/api/detail/add")
+		/*@GetMapping("/api/detail/add")
 		public void addFiche() {
 								
 					DetailModel addfiche=new DetailModel();
@@ -42,7 +46,22 @@ public class DetailRestControler {
 																
 				
 				
-			}
+			}*/
+		
+		  @PostMapping("/api/detail/add")
+		  public ResponseEntity<DetailModel> createTutorial(@RequestBody DetailModel detail) {
+
+			  DetailModel _detail = repository.save(new DetailModel(
+					  
+					  detail.getExploitation_systeme(),
+					  detail.getProcesseur(),
+					  detail.getCarte_graphique(),
+					  detail.getStockage(),
+					  detail.getRam()
+					  ));
+		      return new ResponseEntity<>(_detail, HttpStatus.CREATED);
+		  
+		  }
 
 
 		@GetMapping("/api/detail/view/{id}")
