@@ -1,11 +1,13 @@
-package com.cda.pc;
+package com.cda.pc.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Persons")
 public class User {
 	
 	@Id
