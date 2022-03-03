@@ -1,4 +1,4 @@
-package com.cda.pc.controllers;
+package com.cda.pc.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

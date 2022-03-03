@@ -1,7 +1,5 @@
-package entities;
-package com.cda.pc.Models;
+package com.cda.pc.model;
 
-import java.util.AbstractCollection;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -10,7 +8,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Order {
-	
 	
 	public Order() {
 		super();

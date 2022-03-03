@@ -1,4 +1,4 @@
-package com.cda.pc.Api;
+package com.cda.pc.api;
 
 import java.util.Optional;
 
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cda.pc.Models.DetailModel;
-import com.cda.pc.Repository.DetailRepository;
+import com.cda.pc.model.DetailModel;
+import com.cda.pc.repository.DetailRepository;
 
 @RestController
-public class DetailRestControler {
+public class DetailRestController {
 	
 	@Autowired
 	private DetailRepository repository;
