@@ -1,3 +1,4 @@
+package com.cda.pc.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

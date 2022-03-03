@@ -1,3 +1,4 @@
+package com.cda.pc.model;
 
 import java.util.Collection;
 
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 public class Panier {
 	
 	@Id
+	private String user; 
 	private float price;
 	
 	
