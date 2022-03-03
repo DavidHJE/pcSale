@@ -1,9 +1,12 @@
 package com.cda.pc.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,9 @@ public class User {
 	private String email;
 	
 	private String password;
+	
+	@OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 	
 	protected User() {}
 	
@@ -70,4 +76,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
 }

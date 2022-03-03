@@ -42,7 +42,7 @@ public class CommentRestController {
 		try {
 			Date dateJour = new Date();
 		      Comment _comment = repository
-		          .save(new Comment(newComment.getComment(), dateJour , false));
+		          .save(new Comment(newComment.getComment(), dateJour , false, newComment.getUser(), newComment.getComputer()));
 		      return new ResponseEntity<>(_comment, HttpStatus.CREATED);
 		    } catch (Exception e) {
 		      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
