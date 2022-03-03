@@ -1,4 +1,4 @@
-package com.cda.pc.Models;
+package com.cda.pc.model;
 
 import java.util.Date;
 
