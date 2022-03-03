@@ -3,10 +3,14 @@ package com.cda.pc.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Computer {
@@ -20,7 +24,8 @@ public class Computer {
 	private int stock;
 	private String category;
 	
-	@OneToMany(mappedBy = "comment")
+	@OneToMany(mappedBy = "comment") 
+	@JsonBackReference
     private List<Comment> comments;
 	
 	 @OneToOne(mappedBy = "computer")
