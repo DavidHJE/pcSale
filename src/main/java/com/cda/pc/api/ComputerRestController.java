@@ -1,6 +1,5 @@
 package com.cda.pc.api;
 
-import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.pc.model.Computer;
+import com.cda.pc.model.DetailModel;
 import com.cda.pc.repository.ComputerRepository;
 
 @RestController
@@ -26,7 +26,10 @@ public class ComputerRestController {
 	
 	
 	
-	
+	@GetMapping("computer")
+	public Iterable<Computer> findAll(){
+		return repository.findAll();
+	}
 	
 	@PostMapping("computer/add")
 	public ResponseEntity<Computer> create(@RequestBody Computer computer) {

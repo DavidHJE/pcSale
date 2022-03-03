@@ -23,6 +23,11 @@ public class DetailRestController {
 
 	@Autowired
 	private DetailRepository repository;
+	
+	@GetMapping("detail")
+	public Iterable<DetailModel> findAll(){
+		return repository.findAll();
+	}
 
 	@PostMapping("detail/add")
 	public ResponseEntity<DetailModel> createTutorial(@RequestBody DetailModel detail) {
