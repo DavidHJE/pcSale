@@ -1,8 +1,11 @@
 package com.cda.pc.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +19,9 @@ public class Computer {
 	private float price;
 	private int stock;
 	private String category;
+	
+	@OneToMany(mappedBy = "comment")
+    private List<Comment> comments;
 	
 	 @OneToOne(mappedBy = "computer")
 	 private DetailModel detail;
@@ -73,6 +79,14 @@ public class Computer {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
 
 	public DetailModel getDetail() {
 		return detail;
