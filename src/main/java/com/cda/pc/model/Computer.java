@@ -20,15 +20,18 @@ public class Computer {
 	 @OneToOne(mappedBy = "computer")
 	 private DetailModel detail;
 
-	public Computer(String name, String mark, float price, int stock, String category) {
+
+	
+	public Computer(String name, String mark, float price, int stock, String category, DetailModel detail) {
 		super();
 		this.name = name;
 		this.mark = mark;
 		this.price = price;
 		this.stock = stock;
 		this.category = category;
+		this.detail = detail;
 	}
-	
+
 	public Computer() {
 		super();
 		// TODO Auto-generated constructor stub
