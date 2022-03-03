@@ -1,3 +1,4 @@
+/*
 package com.cda.pc.model;
 
 import java.util.Collection;
@@ -5,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 public class Order {
@@ -16,12 +18,9 @@ public class Order {
 
 	@Id
 	@GeneratedValue
-	
 	private int id;
 	private float price;
-	private String user;
 	
-	private Collection<Computer>computer;
 	private String status;
 	
 	
@@ -29,8 +28,6 @@ public class Order {
 		super();
 		this.id = id;
 		this.price = price;
-		this.user = user;
-		this.computer= computer;
 		this.status = status;
 	}
 
@@ -55,26 +52,6 @@ public class Order {
 	}
 
 
-	public String getUser() {
-		return user;
-	}
-
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-
-	public Collection<Computer> getComputer() {
-		return computer;
-	}
-
-
-	public void setComputer(Collection<Computer> computer) {
-		this.computer = computer;
-	}
-
-
 	public String getStatus() {
 		return status;
 	}
@@ -85,3 +62,4 @@ public class Order {
 	}
 	
 }
+*/
