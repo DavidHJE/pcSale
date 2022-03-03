@@ -3,6 +3,7 @@ package com.cda.pc.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Computer {
@@ -16,7 +17,9 @@ public class Computer {
 	private int stock;
 	private String category;
 	
-	
+	 @OneToOne(mappedBy = "computer")
+	 private DetailModel detail;
+
 	public Computer(String name, String mark, float price, int stock, String category) {
 		super();
 		this.name = name;
@@ -67,4 +70,14 @@ public class Computer {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public DetailModel getDetail() {
+		return detail;
+	}
+
+	public void setDetail(DetailModel detail) {
+		this.detail = detail;
+	}
+	
+	
 }

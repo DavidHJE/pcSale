@@ -28,7 +28,7 @@ public class DetailRestController {
 		DetailModel _detail = repository.save(new DetailModel(
 
 				detail.getExploitation_systeme(), detail.getProcesseur(), detail.getCarte_graphique(),
-				detail.getStockage(), detail.getRam()));
+				detail.getStockage(), detail.getRam(),detail.getComputer()));
 		return new ResponseEntity<>(_detail, HttpStatus.CREATED);
 
 	}
@@ -51,25 +51,10 @@ public class DetailRestController {
 		return "La fiche est supprimer" + id;
 	}
 
-	@GetMapping("/api/detail/update/{id}")
-	public String updateDetail(@PathVariable("id") long id, Model model) {
-		Optional<DetailModel> fiche = repository.findById(id);
-
-		if (fiche.isPresent()) {
-			DetailModel _fiche = fiche.get();
-			_fiche.setCarte_graphique("Intel HD");
-			_fiche.setExploitation_systeme("Mac");
-			_fiche.setProcesseur("M1");
-			_fiche.setRam("4G");
-			_fiche.setStockage("256");
-
-			repository.save(_fiche);
-		}
-}
-		
+	
 
 		
-		/*@PutMapping("/api/detail/update/{id}")
+		@PutMapping("/api/detail/update/{id}")
 		  public ResponseEntity<DetailModel>updateD(@PathVariable("id") long id, @RequestBody DetailModel detail) {
 		    Optional<DetailModel> fiche = repository.findById(id);
 		   
@@ -81,15 +66,13 @@ public class DetailRestController {
 		        _fiche.setCarte_graphique(detail.getCarte_graphique());
 		        _fiche.setStockage(detail.getStockage());
 		        _fiche.setRam(detail.getRam());
+		        _fiche.setComputer(detail.getComputer());
 		        
 		        repository.save(_fiche);
 		      } 
 		    
 		      return new ResponseEntity<>(detail, HttpStatus.OK);
 		}
-		  }*/
+		  }
 
-
-		return "La fiche est modifier" + id;
-	}
 

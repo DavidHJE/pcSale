@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 @Entity
 @Table(name = "detail")
 public class DetailModel {
@@ -82,14 +84,17 @@ public class DetailModel {
 		this.computer = computer;
 	}
 
+
+
 	public DetailModel(String exploitation_systeme, String processeur, String carte_graphique, String stockage,
-			String ram) {
+			String ram, Computer computer) {
 		super();
 		this.exploitation_systeme = exploitation_systeme;
 		this.processeur = processeur;
 		this.carte_graphique = carte_graphique;
 		this.stockage = stockage;
 		this.ram = ram;
+		this.computer = computer;
 	}
 
 
