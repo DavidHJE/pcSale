@@ -1,4 +1,3 @@
-/*package com.cda.pc.model;
 
 import java.util.Collection;
 
@@ -9,7 +8,6 @@ import javax.persistence.Id;
 public class Panier {
 	
 	@Id
-	private String user; // to change
 	private float price;
 	
 	
@@ -36,4 +34,3 @@ public class Panier {
 		this.price = price;
 	}
 }
-*/
