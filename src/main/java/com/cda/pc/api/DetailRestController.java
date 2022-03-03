@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -100,6 +101,29 @@ public class DetailRestController {
 		    
 		    return "La fiche est modifier" + id;
 		}
-
-
 }
+		
+
+		
+		/*@PutMapping("/api/detail/update/{id}")
+		  public ResponseEntity<DetailModel>updateD(@PathVariable("id") long id, @RequestBody DetailModel detail) {
+		    Optional<DetailModel> fiche = repository.findById(id);
+		   
+		    
+		    if (fiche.isPresent()) {
+		        DetailModel _fiche = fiche.get();
+		        _fiche.setExploitation_systeme(detail.getExploitation_systeme());
+		        _fiche.setProcesseur(detail.getProcesseur());
+		        _fiche.setCarte_graphique(detail.getCarte_graphique());
+		        _fiche.setStockage(detail.getStockage());
+		        _fiche.setRam(detail.getRam());
+		        
+		        repository.save(_fiche);
+		      } 
+		    
+		      return new ResponseEntity<>(detail, HttpStatus.OK);
+		}
+		  }*/
+
+
+

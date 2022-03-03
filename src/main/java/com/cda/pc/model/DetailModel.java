@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,9 +21,10 @@ public class DetailModel {
 	private String stockage;
 	private String ram;
 	
-	/*@OneToOne
-	private int computer;*/
-
+	 @OneToOne
+	 @JoinColumn(name = "computer_id")
+	 private Computer computer;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -69,6 +71,15 @@ public class DetailModel {
 
 	public void setRam(String ram) {
 		this.ram = ram;
+	}
+	
+
+	public Computer getComputer() {
+		return computer;
+	}
+
+	public void setComputer(Computer computer) {
+		this.computer = computer;
 	}
 
 	public DetailModel(String exploitation_systeme, String processeur, String carte_graphique, String stockage,
