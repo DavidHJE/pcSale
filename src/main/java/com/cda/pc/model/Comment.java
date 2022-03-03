@@ -6,15 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import lombok.ToString;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	//private User user;
-	//private Computer computer;
+	@ManyToOne
+    @JoinColumn(name="user_id")
+	private User user;
+	@ManyToOne
+    @JoinColumn(name="computer_id")
+    private Computer computer;
 	private String comment;
 	private Date created_date;
 	private Date updated_date;
@@ -57,8 +62,25 @@ public class Comment {
 	public void setIs_deleted(Boolean is_deleted) {
 		this.is_deleted = is_deleted;
 	}
-	public Comment(String comment, Date created_date, Boolean is_deleted) {
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Computer getComputer() {
+		return computer;
+	}
+	public void setComputer(Computer computer) {
+		this.computer = computer;
+	}
+	
+	
+	public Comment(String comment, Date created_date, Boolean is_deleted, User user, Computer computer) {
 		super();
+		this.user = user;
+		this.computer = computer;
 		this.comment = comment;
 		this.created_date = created_date;
 		this.is_deleted = is_deleted;
