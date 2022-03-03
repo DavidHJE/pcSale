@@ -11,18 +11,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.pc.model.DetailModel;
 import com.cda.pc.repository.DetailRepository;
 
 @RestController
+@RequestMapping("/api")
 public class DetailRestController {
 
 	@Autowired
 	private DetailRepository repository;
 
-	@PostMapping("/api/detail/add")
+	@PostMapping("detail/add")
 	public ResponseEntity<DetailModel> createTutorial(@RequestBody DetailModel detail) {
 
 		DetailModel _detail = repository.save(new DetailModel(
@@ -33,7 +35,7 @@ public class DetailRestController {
 
 	}
 
-	@GetMapping("/api/detail/view/{id}")
+	@GetMapping("detail/view/{id}")
 	public DetailModel showDetail(@PathVariable("id") long id, Model model) {
 
 		DetailModel detail = repository.findById(id)
@@ -43,7 +45,7 @@ public class DetailRestController {
 		return detail;
 	}
 
-	@GetMapping("/api/detail/delete/{id}")
+	@GetMapping("detail/delete/{id}")
 	public String deleteDetail(@PathVariable("id") long id, Model model) {
 
 		repository.deleteById(id);
