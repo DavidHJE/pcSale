@@ -24,6 +24,14 @@ public class User {
 	
 	protected User() {}
 	
+	public User(long id, String name, String pseudo, String email, String password) {
+		this.id = id;
+		this.name = name;
+		this.pseudo = pseudo;
+		this.email = email;
+		this.password = password;
+	}
+	
 	public User(String name, String pseudo, String email, String password) {
 		this.name = name;
 		this.pseudo = pseudo;
