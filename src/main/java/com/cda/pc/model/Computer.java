@@ -29,6 +29,7 @@ public class Computer {
     private List<Comment> comments;
 	
 	 @OneToOne(mappedBy = "computer")
+	 @JsonBackReference
 	 private DetailModel detail;
 
 
