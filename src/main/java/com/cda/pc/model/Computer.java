@@ -13,7 +13,7 @@ public class Computer {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	private String name;
 	private String mark;
 	private float price;
@@ -23,8 +23,12 @@ public class Computer {
 	@OneToMany(mappedBy = "comment")
     private List<Comment> comments;
 	
-	 @OneToOne(mappedBy = "computer")
-	 private DetailModel detail;
+	@OneToOne(mappedBy = "computer")
+	private DetailModel detail;
+	 
+	@OneToMany(mappedBy = "panier")
+	private List<Panier> paniers;
+	 
 
 	public Computer(String name, String mark, float price, int stock, String category) {
 		super();
@@ -40,10 +44,10 @@ public class Computer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -76,22 +80,5 @@ public class Computer {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-	
-
-	public DetailModel getDetail() {
-		return detail;
-	}
-
-	public void setDetail(DetailModel detail) {
-		this.detail = detail;
-	}
-	
 	
 }
