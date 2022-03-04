@@ -1,39 +1,48 @@
-/*package com.cda.pc.model;
-
-import java.util.Collection;
+package com.cda.pc.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Panier {
 	
 	@Id
-	private String user; // to change
-	private float price;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
+	@ManyToOne
+    @JoinColumn(name="user_id")
+	private User user;
 	
-	public Panier() {
-		super();
-		// TODO Auto-generated constructor stub
+	@ManyToOne
+    @JoinColumn(name="computer_id")
+    private Computer panier;
+
+	public Long getId() {
+		return id;
 	}
-	public Panier(String user, Collection<Computer> computer, float price) {
-		super();
-		this.user = user;
-		this.price = price;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
-	public String getUser() {
+
+	public User getUser() {
 		return user;
 	}
-	public void setUser(String user) {
+
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public float getPrice() {
-		return price;
+	public Computer getPanier() {
+		return panier;
 	}
-	public void setPrice(float price) {
-		this.price = price;
+
+	public void setPanier(Computer panier) {
+		this.panier = panier;
 	}
 }
-*/

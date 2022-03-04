@@ -3,21 +3,19 @@ package com.cda.pc.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Computer {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	private String name;
 	private String mark;
 	private float price;
@@ -27,7 +25,10 @@ public class Computer {
 	@OneToMany(mappedBy = "comment") 
 	@JsonBackReference
     private List<Comment> comments;
-	
+	 
+	@OneToMany(mappedBy = "panier")
+	private List<Panier> paniers;
+	 
 	 @OneToOne(mappedBy = "computer")
 	 @JsonBackReference
 	 private DetailModel detail;
@@ -49,10 +50,10 @@ public class Computer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -85,14 +86,6 @@ public class Computer {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-	
 
 	public DetailModel getDetail() {
 		return detail;
@@ -101,6 +94,7 @@ public class Computer {
 	public void setDetail(DetailModel detail) {
 		this.detail = detail;
 	}
+	
 	
 	
 }

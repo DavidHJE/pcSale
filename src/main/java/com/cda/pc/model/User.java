@@ -33,6 +33,9 @@ public class User {
 	@JsonBackReference
     private List<Comment> comments;
 	
+	@OneToMany(mappedBy = "user")
+    private List<Panier> paniers;
+	
 	protected User() {}
 	
 	public User(long id, String name, String pseudo, String email, String password) {
@@ -97,5 +100,15 @@ public class User {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+
+	public List<Panier> getPaniers() {
+		return paniers;
+	}
+
+	public void setPaniers(List<Panier> paniers) {
+		this.paniers = paniers;
+	}
+	
+	
 	
 }
