@@ -4,18 +4,18 @@ pipeline {
         stage('Clean and Build') {
             steps {
             	sh 'jobs -p | awk \'{printf "%s", $3}\' | xargs -r kill'
-                mvn clean compile
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                mvn test
+                sh 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
-                mvn package
-                java -jar target/pc-0.0.1-SNAPSHOT.jar &
+                sh 'mvn package'
+                sh 'java -jar target/pc-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
