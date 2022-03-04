@@ -32,9 +32,10 @@ public class ComputerRestController {
 	}
 
 	@RequestMapping(path="computer/add",consumes="application/json")
+	//@PostMapping("computer/add")
 	public ResponseEntity<Computer> create(@RequestBody Computer computer) {
 
-		Computer _computer = repository.save(new Computer(
+		Computer _computer = repository.save(new Computer(computer.getId(),
 
 				computer.getName(), computer.getMark(), computer.getPrice(), computer.getStock(),
 				computer.getCategory()));
@@ -58,6 +59,7 @@ public class ComputerRestController {
 		Optional<Computer> computerData = repository.findById(id);
 		if (computerData.isPresent()) {
 			Computer _computer = computerData.get();
+			_computer.setId(computer.getId());
 			_computer.setName(computer.getName());
 			_computer.setMark(computer.getMark());
 			_computer.setPrice(computer.getPrice());
