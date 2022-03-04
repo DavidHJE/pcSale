@@ -91,6 +91,15 @@ public class Comment {
 		this.created_date = created_date;
 		this.is_deleted = is_deleted;
 	}
+	public Comment(Long id, String comment, Date created_date, Boolean is_deleted, User user, Computer computer) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.computer = computer;
+		this.comment = comment;
+		this.created_date = created_date;
+		this.is_deleted = is_deleted;
+	}
 	public Comment() {
 		super();
 	}
