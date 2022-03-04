@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'mvn package'
-                sh 'java -jar target/pc-0.0.1-SNAPSHOT.jar &'
+                sh 'mvn spring-boot:run &'
             }
         }
     }
