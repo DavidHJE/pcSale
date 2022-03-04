@@ -36,7 +36,7 @@ public class ComputerRestController {
 
 		Computer _computer = repository.save(new Computer(
 
-				computer.getName(),computer.getMark(),computer.getPrice(),computer.getStock(),computer.getCategory(),computer.getDetail()));
+				computer.getName(),computer.getMark(),computer.getPrice(),computer.getStock(),computer.getCategory()));
 		
 		return new ResponseEntity<>(_computer, HttpStatus.CREATED);
 
@@ -63,7 +63,7 @@ public class ComputerRestController {
 	    	_computer.setPrice(computer.getPrice());
 	    	_computer.setStock(computer.getStock());
 	    	_computer.setCategory(_computer.getCategory());
-	    	_computer.setDetail(_computer.getDetail());
+	    //	_computer.setDetail(_computer.getDetail());
 	    	
 	      
 	      return new ResponseEntity<>(repository.save(_computer), HttpStatus.OK);
