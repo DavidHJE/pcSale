@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clean and Build') {
             steps {
-            	sh('jobs -p | awk '{printf "%s", $3}' | xargs kill')
+            	sh('jobs -p | awk \'{printf "%s", $3}\' | xargs kill')
                 sh('mvn clean compile')
             }
         }
