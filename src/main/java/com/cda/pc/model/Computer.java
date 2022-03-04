@@ -26,6 +26,7 @@ public class Computer {
 	@JsonBackReference
     private List<Comment> comments;
 	 
+	
 	@OneToMany(mappedBy = "panier")
 	private List<Panier> paniers;
 	 

@@ -24,7 +24,6 @@ public class Comment {
 	private User user;
 	
 	@ManyToOne
-	@JsonManagedReference
     @JoinColumn(name="computer_id")
     private Computer computer;
 	

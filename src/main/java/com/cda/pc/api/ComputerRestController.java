@@ -17,6 +17,8 @@ import com.cda.pc.model.Computer;
 import com.cda.pc.model.DetailModel;
 import com.cda.pc.repository.ComputerRepository;
 
+import lombok.CustomLog;
+
 @RestController
 @RequestMapping("/api")
 public class ComputerRestController {
@@ -29,7 +31,7 @@ public class ComputerRestController {
 		return repository.findAll();
 	}
 
-	@PostMapping("computer/add")
+	@RequestMapping(path = "computer/add",consumes="application/json")
 	public ResponseEntity<Computer> create(@RequestBody Computer computer) {
 
 		Computer _computer = repository.save(new Computer(

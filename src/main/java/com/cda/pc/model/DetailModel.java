@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class DetailModel {
 	
 	 @OneToOne
-	 @JsonManagedReference
 	 @JoinColumn(name = "computer_id")
 	 private Computer computer;
 
@@ -100,6 +99,10 @@ public class DetailModel {
 		this.stockage = stockage;
 		this.ram = ram;
 		this.computer = computer;
+	}
+
+	public DetailModel() {
+		super();
 	}
 
 
