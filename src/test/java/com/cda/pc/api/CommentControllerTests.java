@@ -83,4 +83,21 @@ public class CommentControllerTests {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/comment/1").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(jsonPath("$", notNullValue()));
 	}
+	
+	@Test
+    public void createComment() throws Exception {
+		
+		Comment comment = new Comment("Commentaire 1", dateJour , false, USER, COMPUTER);
+
+        Mockito.when(commentRepository.save(comment)).thenReturn(comment);
+
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/comment/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(this.mapper.writeValueAsString(comment));
+
+        mockMvc.perform(mockRequest)
+                .andExpect(status().isCreated())
+                .andReturn();
+        }
 }

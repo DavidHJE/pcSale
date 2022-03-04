@@ -50,7 +50,7 @@ public class CommentRestController {
 	}
 	
 	//add a comment
-	@RequestMapping(path="comment/add",consumes="application/json")
+	@PostMapping(path="/api/comment/add",consumes="application/json")
 	public ResponseEntity<Comment> addcomment(@RequestBody Comment newComment) {
 	   
 		try {
