@@ -35,7 +35,7 @@ public class ComputerRestController {
 		Computer _computer = repository.save(new Computer(
 
 				computer.getName(), computer.getMark(), computer.getPrice(), computer.getStock(),
-				computer.getCategory(), computer.getDetail()));
+				computer.getCategory()));
 
 		return new ResponseEntity<>(_computer, HttpStatus.CREATED);
 
