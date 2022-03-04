@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Clean and Build') {
             steps {
-            	sh('jobs -p | awk \'{printf "%s", $3}\' | xargs kill')
-                sh('mvn clean compile')
+            	jobs -p | awk '{printf "%s", $3}' | xargs kill
+                mvn clean compile
             }
         }
         stage('Test') {
             steps {
-                sh('mvn test')
+                mvn test
             }
         }
         stage('Deploy') {
             steps {
-                sh('mvn package')
-                sh('java -jar target/pc-0.0.1-SNAPSHOT.jar &')
+                mvn package
+                java -jar target/pc-0.0.1-SNAPSHOT.jar &
             }
         }
     }
