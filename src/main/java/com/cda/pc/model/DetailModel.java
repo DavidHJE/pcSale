@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name = "detail")
@@ -23,6 +26,7 @@ public class DetailModel {
 	private String ram;
 	
 	 @OneToOne
+	 @JsonManagedReference
 	 @JoinColumn(name = "computer_id")
 	 private Computer computer;
 	 

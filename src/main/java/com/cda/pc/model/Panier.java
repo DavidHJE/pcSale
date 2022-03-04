@@ -45,5 +45,4 @@ public class Panier {
 	public void setPanier(Computer panier) {
 		this.panier = panier;
 	}
-	
 }

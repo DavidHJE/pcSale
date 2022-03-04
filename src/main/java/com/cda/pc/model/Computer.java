@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Computer {
 
@@ -20,25 +22,29 @@ public class Computer {
 	private int stock;
 	private String category;
 	
-	@OneToMany(mappedBy = "comment")
+	@OneToMany(mappedBy = "comment") 
+	@JsonBackReference
     private List<Comment> comments;
-	
-	@OneToOne(mappedBy = "computer")
-	private DetailModel detail;
 	 
 	@OneToMany(mappedBy = "panier")
 	private List<Panier> paniers;
 	 
+	 @OneToOne(mappedBy = "computer")
+	 @JsonBackReference
+	 private DetailModel detail;
 
-	public Computer(String name, String mark, float price, int stock, String category) {
+
+	
+	public Computer(String name, String mark, float price, int stock, String category, DetailModel detail) {
 		super();
 		this.name = name;
 		this.mark = mark;
 		this.price = price;
 		this.stock = stock;
 		this.category = category;
+		this.detail = detail;
 	}
-	
+
 	public Computer() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -80,5 +86,15 @@ public class Computer {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public DetailModel getDetail() {
+		return detail;
+	}
+
+	public void setDetail(DetailModel detail) {
+		this.detail = detail;
+	}
+	
+	
 	
 }

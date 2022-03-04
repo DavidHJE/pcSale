@@ -23,6 +23,11 @@ public class DetailRestController {
 
 	@Autowired
 	private DetailRepository repository;
+	
+	@GetMapping("detail")
+	public Iterable<DetailModel> findAll(){
+		return repository.findAll();
+	}
 
 	@PostMapping("detail/add")
 	public ResponseEntity<DetailModel> createTutorial(@RequestBody DetailModel detail) {
@@ -56,7 +61,7 @@ public class DetailRestController {
 	
 
 		
-		@PutMapping("/api/detail/update/{id}")
+		@PutMapping("detail/update/{id}")
 		  public ResponseEntity<DetailModel>updateD(@PathVariable("id") long id, @RequestBody DetailModel detail) {
 		    Optional<DetailModel> fiche = repository.findById(id);
 		   

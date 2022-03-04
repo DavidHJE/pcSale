@@ -9,17 +9,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@ManyToOne
+	@JsonManagedReference
     @JoinColumn(name="user_id")
 	private User user;
+	
 	@ManyToOne
+	@JsonManagedReference
     @JoinColumn(name="computer_id")
     private Computer computer;
+	
 	private String comment;
 	private Date created_date;
 	private Date updated_date;
