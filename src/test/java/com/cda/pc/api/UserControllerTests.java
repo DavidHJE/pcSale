@@ -68,6 +68,18 @@ public class UserControllerTests {
     }
     
     @Test
+    public void getAllUser_successEmpty() throws Exception {
+    	List<User> users = new ArrayList<User>();
+        
+        Mockito.when(userRepo.findAll()).thenReturn(users);
+        
+        mockMvc.perform(MockMvcRequestBuilders
+                .get("/api/users")
+                .contentType(MediaType.APPLICATION_JSON))
+        		.andExpect((ResultMatcher) status().isNoContent());
+    }
+    
+    @Test
 	public void getUserById_success() throws Exception {
     	Mockito.when(userRepo.findById(USER_1.getId())).thenReturn(Optional.of(USER_1));
 
@@ -78,7 +90,8 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.name", is("Name 1")));
 	}
-    
+
+    /* 
     @Test
     public void createUser_success() throws Exception {
         User user = new User("Name 1", "Pseudo 1", "Email 1", "Password 1");
@@ -95,6 +108,5 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.name", is("Name 1")));
         }
-
-	
+     */
 }

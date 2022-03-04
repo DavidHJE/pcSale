@@ -1,19 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Clean and Build') {
             steps {
+            	sh('jobs -p | awk '{printf "%s", $3}' | xargs kill')
                 sh('mvn clean compile')
             }
         }
         stage('Test') {
             steps {
-                echo 'Test'
+                sh('mvn test')
             }
         }
         stage('Deploy') {
             steps {
-                sh('mvn spring-boot:run')
+                sh('mvn package')
+                sh('java -jar target/pc-0.0.1-SNAPSHOT.jar &')
             }
         }
     }
