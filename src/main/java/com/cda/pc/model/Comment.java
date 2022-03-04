@@ -19,7 +19,6 @@ public class Comment {
 	private Long id;
 	
 	@ManyToOne
-	@JsonManagedReference
     @JoinColumn(name="user_id")
 	private User user;
 	

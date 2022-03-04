@@ -31,7 +31,7 @@ public class ComputerRestController {
 		return repository.findAll();
 	}
 
-	@RequestMapping(path = "computer/add",consumes="application/json")
+	@RequestMapping(path="computer/add",consumes="application/json")
 	public ResponseEntity<Computer> create(@RequestBody Computer computer) {
 
 		Computer _computer = repository.save(new Computer(
@@ -54,7 +54,7 @@ public class ComputerRestController {
 	}
 
 	@PutMapping("computer/update/{id}")
-	public ResponseEntity<Computer> update(@PathVariable("id") long id, @RequestBody Computer computer) {
+	public ResponseEntity<Computer> update(@PathVariable("id") long id,Computer computer) {
 		Optional<Computer> computerData = repository.findById(id);
 		if (computerData.isPresent()) {
 			Computer _computer = computerData.get();

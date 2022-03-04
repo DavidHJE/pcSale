@@ -23,7 +23,7 @@ public class Computer {
 	private String category;
 	
 	@OneToMany(mappedBy = "comment") 
-	@JsonBackReference
+	@JsonBackReference(value="commentaire")
     private List<Comment> comments;
 	 
 	
@@ -31,7 +31,7 @@ public class Computer {
 	private List<Panier> paniers;
 	 
 	 @OneToOne(mappedBy = "computer")
-	@JsonBackReference
+	@JsonBackReference(value="fiche")
 	 private DetailModel detail;
 
 
@@ -95,6 +95,22 @@ public class Computer {
 
 	public void setDetail(DetailModel detail) {
 		this.detail = detail;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Panier> getPaniers() {
+		return paniers;
+	}
+
+	public void setPaniers(List<Panier> paniers) {
+		this.paniers = paniers;
 	}
 	
 	

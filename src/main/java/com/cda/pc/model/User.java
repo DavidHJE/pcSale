@@ -30,7 +30,7 @@ public class User {
 	private String password;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonBackReference
+	@JsonBackReference(value="utilisateur")
     private List<Comment> comments;
 	
 	@OneToMany(mappedBy = "user")
