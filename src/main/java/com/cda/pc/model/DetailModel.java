@@ -15,6 +15,11 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "detail")
 public class DetailModel {
+	
+	 @OneToOne
+	 @JsonManagedReference
+	 @JoinColumn(name = "computer_id")
+	 private Computer computer;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -25,10 +30,7 @@ public class DetailModel {
 	private String stockage;
 	private String ram;
 	
-	 @OneToOne
-	 @JsonManagedReference
-	 @JoinColumn(name = "computer_id")
-	 private Computer computer;
+	
 	 
 	public Long getId() {
 		return id;

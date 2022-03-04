@@ -30,19 +30,20 @@ public class Computer {
 	private List<Panier> paniers;
 	 
 	 @OneToOne(mappedBy = "computer")
-	 @JsonBackReference
+	@JsonBackReference
 	 private DetailModel detail;
 
 
 	
-	public Computer(String name, String mark, float price, int stock, String category, DetailModel detail) {
+	
+
+	public Computer(String name, String mark, float price, int stock, String category) {
 		super();
 		this.name = name;
 		this.mark = mark;
 		this.price = price;
 		this.stock = stock;
 		this.category = category;
-		this.detail = detail;
 	}
 
 	public Computer() {
