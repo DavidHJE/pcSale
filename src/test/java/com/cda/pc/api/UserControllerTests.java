@@ -104,7 +104,7 @@ public class UserControllerTests {
                 .content(this.mapper.writeValueAsString(user));
 
         mockMvc.perform(mockRequest)
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.name", is("Name 1")));
         }
