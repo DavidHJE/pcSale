@@ -1,47 +1,62 @@
 
 package com.cda.pc.model;
 
-
-import javax.persistence.Entity;
+/*import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="orders")
 public class Order {
 	
+	public Order() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private Float price;
+	@GeneratedValue
+	private int id;
+	private float price;
+	
 	private String status;
 	
-	public Long getId() {
+	
+	public Order(int id, float price, String status) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.status = status;
+	}
+
+
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	public Float getPrice() {
+
+
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(Float price) {
+
+
+	public void setPrice(float price) {
 		this.price = price;
 	}
+
+
 	public String getStatus() {
 		return status;
 	}
+
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
 	
-	
-	
-	
-
-	
-}
+}*/
 

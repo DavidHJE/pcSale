@@ -1,11 +1,15 @@
+package com.cda.pc.api;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,19 +20,18 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.cda.pc.api.ComputerRestController;
 import com.cda.pc.model.Computer;
-import com.cda.pc.model.User;
 import com.cda.pc.repository.ComputerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @AutoConfigureMockMvc
 @WebMvcTest(ComputerRestController.class)
-public class ComputerControllerTest {
+public class Computertest2 {
 	
-	
+
 	@Autowired
     MockMvc mockMvc;
 	
@@ -51,13 +54,9 @@ public class ComputerControllerTest {
                 .get("/api/computer")
                 .contentType(MediaType.APPLICATION_JSON))
         		.andExpect((ResultMatcher) status().isOk())
-        		.andExpect(jsonPath("$", hasSize(2)))
-        		.andExpect(jsonPath("$[0].name", is("Name Pc config")));
-        	
+        		.andExpect(jsonPath("$[0].name", is("Name GS 69 stealth")));
     }
+    
+   
 
-    
-    
-    
-	
 }

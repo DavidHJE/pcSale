@@ -38,7 +38,17 @@ public class Computer {
 	
 	
 
-	public Computer(Long id,String name, String mark, float price, int stock, String category) {
+	public Computer(Long id, String name, String mark, float price, int stock, String category) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mark = mark;
+		this.price = price;
+		this.stock = stock;
+		this.category = category;
+	}
+
+	public Computer(String name, String mark, float price, int stock, String category) {
 		super();
 		this.id=id;
 		this.name = name;

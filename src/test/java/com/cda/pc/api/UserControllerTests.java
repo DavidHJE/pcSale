@@ -91,7 +91,7 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.name", is("Name 1")));
 	}
 
-    /* 
+    
     @Test
     public void createUser_success() throws Exception {
         User user = new User("Name 1", "Pseudo 1", "Email 1", "Password 1");
@@ -104,9 +104,7 @@ public class UserControllerTests {
                 .content(this.mapper.writeValueAsString(user));
 
         mockMvc.perform(mockRequest)
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", notNullValue()))
-                .andExpect(jsonPath("$.name", is("Name 1")));
+                .andExpect(status().isCreated())
+                .andReturn();
         }
-     */
 }

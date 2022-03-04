@@ -1,5 +1,7 @@
 package com.cda.pc.api;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.pc.model.Comment;
+import com.cda.pc.model.User;
 import com.cda.pc.repository.CommentRepository;
 
 @RestController
@@ -23,10 +27,20 @@ public class CommentRestController {
 	@Autowired
 	private CommentRepository repository;
 	
-	//find all
 	@GetMapping("/api/comment")
-	public Iterable<Comment> findAll(){
-		return repository.findAll();
+	public ResponseEntity<List<Comment>> findAll() {
+		try {
+			List<Comment> comments = new ArrayList<Comment>();
+
+			repository.findAll().forEach(comments::add);
+
+			if (comments.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(comments, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	//find by id
@@ -36,7 +50,7 @@ public class CommentRestController {
 	}
 	
 	//add a comment
-	@PostMapping("/api/comment")
+	@PostMapping(path="/api/comment/add",consumes="application/json")
 	public ResponseEntity<Comment> addcomment(@RequestBody Comment newComment) {
 	   
 		try {
